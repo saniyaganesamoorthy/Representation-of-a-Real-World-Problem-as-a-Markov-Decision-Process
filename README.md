@@ -3,16 +3,10 @@
 
 ## Aim
 
-Write your aim here.
-
-Example:
-
-> To identify a real-world sequential decision-making problem and represent it formally as a Markov Decision Process by defining its states, actions, rewards, transitions, and Python representation.
-
----
+To represent a real-world warehouse delivery robot problem as a Markov Decision Process (MDP) by defining its states, actions, transition probabilities, reward function, and objective for optimal decision-making.
 
 ## Problem Statement
-
+A warehouse robot is responsible for picking up packages from storage locations and delivering them to the correct loading area. The robot operates in a grid-based warehouse where it must avoid obstacles, navigate efficiently, and conserve battery power. At every step, the robot decides whether to move up, down, left, or right. It receives a positive reward for successfully delivering a package, a small negative reward for each movement (to encourage shorter paths), and a large negative reward if it collides with an obstacle. The robot continues making decisions until it successfully completes the delivery or its battery is exhausted.
 ### Problem Description
 
 Write your answer here.
