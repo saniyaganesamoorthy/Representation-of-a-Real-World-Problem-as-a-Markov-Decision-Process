@@ -9,9 +9,7 @@ To represent a real-world warehouse delivery robot problem as a Markov Decision 
 A warehouse robot is responsible for picking up packages from storage locations and delivering them to the correct loading area. The robot operates in a grid-based warehouse where it must avoid obstacles, navigate efficiently, and conserve battery power. At every step, the robot decides whether to move up, down, left, or right. It receives a positive reward for successfully delivering a package, a small negative reward for each movement (to encourage shorter paths), and a large negative reward if it collides with an obstacle. The robot continues making decisions until it successfully completes the delivery or its battery is exhausted.
 ### Problem Description
 
-Write your answer here.
-
-Describe the real-world application that you selected.
+A warehouse delivery robot is tasked with transporting packages from storage locations to designated delivery points inside a warehouse. The robot operates in a grid-based environment containing obstacles such as shelves and walls. At each step, it must choose an action—move up, down, left, or right—to reach its destination while avoiding collisions and minimizing travel time. The robot receives a positive reward for successfully delivering a package, a small penalty for each movement to encourage shorter paths, and a large penalty for hitting obstacles or running out of battery. The objective is to determine the optimal sequence of actions that maximizes the total reward and enables safe, efficient package delivery.
 
 
 ---
