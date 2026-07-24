@@ -147,38 +147,7 @@ Battery Exhausted → -50
 
 ## Graphical Representation
 
-                 Move
-      +----------------------+
-      |                      |
-      v                      |
-   [Start]
-      |
- Move Right (-1)
-      |
-      v
-[Carrying Package]
-      |
-Move Up (-1)
-      |
-      v
-[Delivery Point]
-      |
-Deliver (+100)
-      |
-      v
- [Goal State]
 
-        |
-        | Collision (-20)
-        v
-   [Obstacle]
-
-        |
-Battery Exhausted (-50)
-        v
- [Terminal State]
-
----
 
 ## Python Representation
 
