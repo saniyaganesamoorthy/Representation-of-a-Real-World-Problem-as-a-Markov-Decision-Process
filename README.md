@@ -36,18 +36,21 @@ Where:
 
 ## State Space
 
-Write your answer here.
-
 The state space should list all possible situations in which the agent can exist.
-
-Example format:
 
 ```text
 S = {
-    State 1,
-    State 2,
-    State 3,
-    ...
+    S₁ = Robot at Start Position
+S₂ = Robot Moving Up
+S₃ = Robot Moving Down
+S₄ = Robot Moving Left
+S₅ = Robot Moving Right
+S₆ = Robot Near Obstacle
+S₇ = Robot Hits Obstacle
+S₈ = Robot Carrying Package
+S₉ = Robot at Delivery Location
+S₁₀ = Package Successfully Delivered (Goal State)
+S₁₁ = Battery Exhausted (Terminal State)
 }
 ```
 
@@ -57,28 +60,22 @@ S = {
 
 ## Sample State
 
-Write your answer here.
+S₈ = Robot Carrying Package
 
-A sample state is one specific example from the state space.
-
-
+This means the robot has successfully picked up the package and is navigating toward the delivery location.
 
 ---
 
 ## Action Space
 
-Write your answer here.
-
-The action space should list all possible actions available to the agent.
-
-Example format:
+The robot can perform the following actions:
 
 ```text
 A = {
-    Action 1,
-    Action 2,
-    Action 3,
-    ...
+    Move Up
+Move Down
+Move Left
+Move Right
 }
 ```
 
@@ -87,19 +84,15 @@ A = {
 
 ## Sample Action
 
-Write your answer here.
+Move Right
 
-A sample action is one action selected from the action space.
-
-
+The robot moves one cell to the right.
 
 ---
 
 ## Transition Probability
 
-Write your answer here.
-
-The transition probability explains how the environment moves from one state to another after an action is taken.
+The transition probability specifies the probability of moving from one state to another after taking an action.
 
 General form:
 
