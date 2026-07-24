@@ -40,7 +40,7 @@ The state space should list all possible situations in which the agent can exist
 
 ```text
 S = {
-    S₁ = Robot at Start Position
+S₁ = Robot at Start Position
 S₂ = Robot Moving Up
 S₃ = Robot Moving Down
 S₄ = Robot Moving Left
@@ -72,7 +72,7 @@ The robot can perform the following actions:
 
 ```text
 A = {
-    Move Up
+Move Up
 Move Down
 Move Left
 Move Right
@@ -102,16 +102,24 @@ $$
 
 This means:
 
-> Probability of reaching next state $s'$ after taking action $a$ in current state $s$.
+| Current State    | Action     | Next State       | Probability |
+| ---------------- | ---------- | ---------------- | ----------- |
+| Start            | Move Right | Carrying Package | 0.9         |
+| Start            | Move Right | Hit Obstacle     | 0.1         |
+| Carrying Package | Move Up    | Delivery Point   | 0.95        |
+| Carrying Package | Move Left  | Obstacle         | 0.05        |
 
+Meaning:
+
+90% chance the robot successfully moves.
+10% chance it collides with an obstacle.
+Probabilities may vary depending on the environment.
 
 ---
 
 ## Reward Function
 
-Write your answer here.
-
-The reward function defines the feedback received by the agent after taking an action.
+The reward function provides feedback after each action.
 
 General form:
 
@@ -119,52 +127,136 @@ $$
 R(s,a,s')
 $$
 
+Reward Table:
+| Situation               | Reward |
+| ----------------------- | ------ |
+| Successful Delivery     | +100   |
+| Every Movement          | -1     |
+| Collision with Obstacle | -20    |
+| Battery Exhausted       | -50    |
+
+Example:
+
+Move Successfully → -1
+Hit Obstacle → -20
+Deliver Package → +100
+Battery Exhausted → -50
 
 
 ---
 
 ## Graphical Representation
 
-Write your answer here.
+                 Move
+      +----------------------+
+      |                      |
+      v                      |
+   [Start]
+      |
+ Move Right (-1)
+      |
+      v
+[Carrying Package]
+      |
+Move Up (-1)
+      |
+      v
+[Delivery Point]
+      |
+Deliver (+100)
+      |
+      v
+ [Goal State]
 
-Draw the MDP graph.
+        |
+        | Collision (-20)
+        v
+   [Obstacle]
 
-The graph should include:
-
-1. States as nodes.
-2. Actions as arrows.
-3. Rewards on transitions.
-4. Transition probabilities if applicable.
-
+        |
+Battery Exhausted (-50)
+        v
+ [Terminal State]
 
 ---
 
 ## Python Representation
 
-Write your code here.
-
-Use Python dictionaries to represent the MDP.
-
 
 ```python
 # MDP Representation using Python
-# print("Name:       ")
-# print("Register Number:     ")
 
+print("Name:SANIYA G")
+print("Register Number:212223240147")
+
+states = [
+    "Start",
+    "Move Up",
+    "Move Down",
+    "Move Left",
+    "Move Right",
+    "Near Obstacle",
+    "Hit Obstacle",
+    "Carrying Package",
+    "Delivery Point",
+    "Goal",
+    "Battery Exhausted"
+]
+
+actions = [
+    "Up",
+    "Down",
+    "Left",
+    "Right"
+]
+
+transition_probability = {
+    ("Start", "Right"): {
+        "Carrying Package": 0.9,
+        "Hit Obstacle": 0.1
+    },
+
+    ("Carrying Package", "Up"): {
+        "Delivery Point": 0.95,
+        "Hit Obstacle": 0.05
+    }
+}
+
+reward = {
+    "Move": -1,
+    "Hit Obstacle": -20,
+    "Delivery": 100,
+    "Battery Exhausted": -50
+}
+
+discount_factor = 0.9
+
+print("\nStates")
+print(states)
+
+print("\nActions")
+print(actions)
+
+print("\nTransition Probability")
+for key, value in transition_probability.items():
+    print(key, "->", value)
+
+print("\nReward Function")
+for key, value in reward.items():
+    print(key, ":", value)
+
+print("\nDiscount Factor =", discount_factor)
 ```
 ---
 ## Output
 
-Write your Python output here.
-
+<img width="988" height="372" alt="image" src="https://github.com/user-attachments/assets/ba525ae5-4b69-4423-800e-2808221fa1bd" />
 
 ---
 
 ## Result
 
-Write your result here.
-
-
+Thus, the warehouse delivery robot problem was successfully represented as a Markov Decision Process (MDP) by defining its state space, action space, transition probability function, reward function, discount factor, graphical representation, and Python implementation. This MDP model enables the robot to learn an optimal policy that maximizes cumulative rewards while ensuring safe and efficient package delivery.
 
 ---
 
