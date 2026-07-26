@@ -147,6 +147,7 @@ Battery Exhausted → -50
 
 ## Graphical Representation
 
+<img width="336" height="615" alt="Screenshot 2026-07-24 214140" src="https://github.com/user-attachments/assets/9a86ce09-d5e6-4590-9580-5023c47d461d" />
 
 
 ## Python Representation
